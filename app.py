@@ -4,10 +4,7 @@ import plotly_express as px
 
 st.header('Vehiculos')
 
-st.write('Esta aplicación aún no es funcional. En construcción.')
-
-car_data = pd.read_csv(
-    'C:\DataAnalyts\Sprint_7\proye_sprin7/vehicles_us.csv')  # leer los datos
+car_data = pd.read_csv('vehicles_us.csv')  # leer los datos
 hist_button = st.button('Construir histograma')  # crear un botón
 
 if hist_button:  # al hacer clic en el botón
