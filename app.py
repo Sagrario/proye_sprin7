@@ -1,0 +1,50 @@
+import streamlit as st
+import pandas as pd
+import plotly_express as px
+
+st.header('Vehiculos')
+
+st.write('Esta aplicación aún no es funcional. En construcción.')
+
+car_data = pd.read_csv(
+    'C:\DataAnalyts\Sprint_7\proye_sprin7/vehicles_us.csv')  # leer los datos
+hist_button = st.button('Construir histograma')  # crear un botón
+
+if hist_button:  # al hacer clic en el botón
+    # escribir un mensaje
+    st.write(
+        'Creación de un histograma para el conjunto de datos de anuncios de venta de coches')
+
+    # crear un histograma
+    fig = px.histogram(car_data, x="odometer")
+
+    # mostrar un gráfico Plotly interactivo
+    st.plotly_chart(fig, use_container_width=True)
+
+
+hist_button2 = st.button('Construir dispersion')  # crear un botón
+
+if hist_button2:  # al hacer clic en el botón
+    # escribir un mensaje
+    st.write(
+        'Creación de un grafico de dispersión para el conjunto de datos de anuncios de venta de coches')
+
+    # crear un histograma
+    fig2 = px.scatter(car_data, x="odometer")
+
+    # mostrar un gráfico Plotly interactivo
+    st.plotly_chart(fig2, use_container_width=True)
+
+# crear una casilla de verificación
+build_histogram = st.checkbox('Construir un histograma')
+
+if build_histogram:  # si la casilla de verificación está seleccionada
+    st.write('Construir un histograma para la columna odómetro')
+    st.write(
+        'Creación de un histograma para el conjunto de datos de anuncios de venta de coches')
+
+    # crear un histograma
+    fig3 = px.histogram(car_data, x="odometer")
+
+    # mostrar un gráfico Plotly interactivo
+    st.plotly_chart(fig3, use_container_width=True)
